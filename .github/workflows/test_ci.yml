@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ARM_CLIENT_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).clientId }}
-      ARM_CLIENT_SECRET: ${{ fromJson(secrets.AZURE_CREDENTIALS).clientSecret }}
-      ARM_SUBSCRIPTION_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).subscriptionId }}
-      ARM_TENANT_ID: ${{ fromJson(secrets.AZURE_CREDENTIALS).tenantId }}
+      ARM_CLIENT_ID: ${{ fromJson(secrets.CICDPIPLINE).clientId }}
+      ARM_CLIENT_SECRET: ${{ fromJson(secrets.CICDPIPLINE).clientSecret }}
+      ARM_SUBSCRIPTION_ID: ${{ fromJson(secrets.CICDPIPLINE).subscriptionId }}
+      ARM_TENANT_ID: ${{ fromJson(secrets.CICDPIPLINE).tenantId }}
 
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{ secrets.CICDPIPLINE }}
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
