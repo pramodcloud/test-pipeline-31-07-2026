@@ -6,3 +6,7 @@ resource "azurerm_resource_group" "rg2" {
   name     = "demo-rg1"
   location = "Central India"
 }
+resource "azurerm_resource_group" "rg2" {
+  name     = "demo-rg2"
+  location = "Central India"
+}
